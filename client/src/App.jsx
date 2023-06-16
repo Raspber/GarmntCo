@@ -4,7 +4,9 @@ import Canvas from './canvas';
 import Customizer from './pages/Customizer';
 import Home from './pages/Home';
 import WorkOrder from './pages/WorkOrder';
-
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 function App() {
   return (
