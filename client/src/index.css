@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,600;1,900&display=swap");
 @import url("https://rsms.me/inter/inter.css");
+@import url("https://use.typekit.net/qcv0grm.css");
 
 @tailwind base;
 @tailwind components;
@@ -103,10 +104,51 @@ body{
   @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
 }
 
-.workorder{
-  @apply w-full xl:h-full  xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6  max-xl:gap-7 absolute z-10
+.workorder-box{
+  @apply w-screen h-screen
 }
 
+.form-container{
+  width: 1024px;
+  border: 2px solid #B2B2B2;
+  margin: auto;
+  padding: 10px;
+}
+
+.workorder-form{
+  @apply w-full h-full   justify-start items-start flex-col ;
+}
+
+.form-first-section{
+  @apply grid grid-cols-3 gap-4 justify-center;  
+}
+
+.form-logo-container{
+  top: 254px;
+  left: 614px;
+}
+
+.form-logo{
+  font-family: nunito-sans, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-input-title {
+  font-family: nunito-sans, sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 12;
+  line-height: 16;
+  letter-spacing: 0;
+  color: #545454;
+  }
 
 .colorpicker-container{
   height: 521px;
