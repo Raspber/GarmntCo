@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,600;1,900&display=swap");
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide the scrollbar for all elements */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Optional: Set a background color for the area where the scrollbar was */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Optional: Add hover styles to the scrollbar track */
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+.app {
+  @apply relative w-full h-screen overflow-hidden;
+}
+
+.home {
+  @apply w-screen h-screen flex xl:justify-between justify-center items-start  flex-col xl:py-8 xl:px-36 sm:p-8 p-6 max-xl:gap-7 absolute z-10;
+}
+
+.home2 {
+  @apply xl:justify-between justify-start items-start xl:py-24 xl:px-36 p-6 py-32 max-xl:gap-7;
+}
+
+.home-content {
+  @apply w-screen h-screen flex-1 xl:justify-center justify-start md:justify-start  md:mt-16 flex flex-col  xl:ms-32;
+}
+
+.head-text {
+  @apply  xl:text-[10rem] md:text-[8rem]  text-[4.5rem] xl:leading-[11rem] leading-[7rem] font-black text-black text-start;
+}
+
+.download-btn {
+  @apply w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
+}
+
+.editortabs-container {
+  @apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
+}
+
+.formtab-container {
+  @apply absolute z-10 bottom-20 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+}
+
+.filtertabs-container {
+  @apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+}
+
+.aipicker-container {
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
+}
+
+.aipicker-textarea {
+  @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
+}
+
+.productpicker-container {
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
+}
+
+.productpicker-textarea {
+  @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
+}
+
+.colorpicker-container{
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[250px] h-[250px] flex flex-col rounded-md;
+}
+
+.filepicker-container {
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
+}
+
+.filepicker-label {
+  @apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-custom-gray focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+}
+
+.tab-btn {
+  @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
+}
+
+.workorder{
+  @apply w-full xl:h-full  xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6  max-xl:gap-7 absolute z-10
+}
+
+
+.colorpicker-container{
+  height: 521px;
+  width: 61.55px;
+}
+
+.glassmorphism {
+  background: #242424;
+  box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  
+}
+
+input[type="file"] {
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+}
