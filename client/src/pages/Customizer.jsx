@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
-
-
-import state from '../store';
+import { Link } from 'react-router-dom';
 import { reader } from '../config/helpers';
 import { EditorTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, ProductPicker, Download, Tab } from '../components';
+import WorkOrder from './WorkOrder';
+import state from '../store';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -43,8 +43,8 @@ const Customizer = () => {
           generatingImg={generatingImg}
           handleSubmit={handleSubmit}
         />
-        case "download":
-        return <Download/>
+      case "download":
+        return <Download />
 
     }
   }
@@ -89,10 +89,10 @@ const Customizer = () => {
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
       case "logoShirt":
-          state.isLogoTexture = !activeFilterTab[tabName];
+        state.isLogoTexture = !activeFilterTab[tabName];
         break;
       case "stylishShirt":
-          state.isFullTexture = !activeFilterTab[tabName];
+        state.isFullTexture = !activeFilterTab[tabName];
         break;
       default:
         state.isLogoTexture = true;
@@ -136,9 +136,9 @@ const Customizer = () => {
                     isFilterTab
                     isActiveTab={activeFilterTab[tab.name]}
                     handleClick={() => {
-                      if(activeEditorTab === tab.name){
+                      if (activeEditorTab === tab.name) {
                         setActiveEditorTab("")
-                      }else{setActiveEditorTab(tab.name)}
+                      } else { setActiveEditorTab(tab.name) }
                     }}
                   />
                 ))}
@@ -157,12 +157,12 @@ const Customizer = () => {
               handleClick={() => state.intro = true}
               customStyles="w-fit text-white px-4 py-2.5 font-bold  m-4 transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
             />
-            <CustomButton
-
-              title="Create Work Order"
-              handleClick={() => [state.customizer = false, state.workorder = true]}
-              customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
-            />
+            <Link to='/workorder' element={<WorkOrder/>}>
+              <CustomButton
+                title="Create Work Order"
+                customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
+              />
+            </Link>
           </motion.div>
         </>
       )}

@@ -25,6 +25,10 @@ html {
   font-family: "Inter", sans-serif;
 }
 
+body{
+  background-color: #e0e0e0;
+}
+
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
