@@ -110,9 +110,11 @@ body{
 
 .form-container{
   width: 1024px;
-  border: 2px solid #B2B2B2;
+  border: 3.5px solid #B2B2B2;
   margin: auto;
   padding: 10px;
+  background-color: rgb(241, 241, 241);
+  border-radius: 12px;
 }
 
 .workorder-form{
