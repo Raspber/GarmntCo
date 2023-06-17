@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { headContainerAnimation, headTextAnimation, slideAnimation } from '../config/motion';
 import { CustomButton } from '../components';
 import FormSectionOne from '../components/FormSectionOne';
+import FormSectionTwo from '../components/FormSectionTwo';
 const WorkOrder = () => {
 
     return (
@@ -17,11 +18,11 @@ const WorkOrder = () => {
                         <motion.div {...slideAnimation}>
                             <div className='form-container'>
                                 <form action="" className='workorder-form'>
-                                    <section>
+                                    <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
                                         <FormSectionOne/>
                                     </section>
-                                    <section>
-                                        second component
+                                    <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
+                                        <FormSectionTwo/>
                                     </section>
                                     <section>
                                         third component

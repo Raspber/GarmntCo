@@ -112,7 +112,7 @@ body{
   width: 1024px;
   border: 3.5px solid #B2B2B2;
   margin: auto;
-  padding: 10px;
+  padding: 50px;
   background-color: rgb(241, 241, 241);
   border-radius: 12px;
 }
@@ -176,6 +176,11 @@ body{
   height: 25px;
 }
 
+.form-input-text-start:focus{
+  box-shadow: 0 0 5px #242424;
+  border-color: #242424;
+}
+
 .form-input-text-due {
   border-radius: 8px;
   font-family: nunito-sans, sans-serif;
@@ -186,6 +191,11 @@ body{
   text-align: end;
   letter-spacing: 16;
   height: 25px;
+}
+
+.form-input-text-due:focus {
+  box-shadow: 0 0 5px #242424;
+  border-color: #242424;
 }
 
 .form-input-text:focus {
@@ -199,6 +209,70 @@ body{
 
 .form-third-section{
   @apply grid grid-cols-3 gap-8 items-center;
+}
+
+
+.middle-first-section{
+  @apply grid grid-cols-4 gap-8 items-center pb-8;
+}
+
+.middle-second-section{
+  @apply grid grid-cols-8 gap-8 items-center pb-8;
+}
+
+.shirt-sizes{
+  border-radius: 8px;
+  font-family: nunito-sans, sans-serif;
+  font-style: SemiBold italic;
+  font-weight: 600;
+  font-size: 12px;
+  color: #242424;
+  text-align: center;
+  height: 25px;
+  width: 75px;;
+}
+
+.shirt-sizes:focus{
+  box-shadow: 0 0 5px #242424;
+  border-color: #242424;
+}
+
+.sizes{
+  align-items: center;
+  display:inline-block;
+  text-align: center;
+}
+.print-location{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.print-location-title{
+  width: 40px;
+}
+.checkbox{
+  border-radius: 100%;
+  color: #242424;
+}
+
+.checkbox:focus{
+  color: #242424;
+  outline-color: #242424;
+  outline-width: 0px;
+  --tw-ring-color: transparent;
+  --tw-ring-offset-width: 0;
+  --tw-ring-width: 0;
+}
+
+.checkbox:-moz-focusring{
+  color: transparent;
+}
+.checkbox:active{
+  background-color: #242424;
 }
 
 .p-inputtext:enabled:focus{
