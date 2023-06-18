@@ -15,4 +15,4 @@ const WorkOrderCustomerSection = {
     in_hands_by: ''
 }
 
-export default WorkOrderCustomerSection
+export default WorkOrderCustomerSection;
