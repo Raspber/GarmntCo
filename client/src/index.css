@@ -247,12 +247,16 @@ body{
   flex-direction: row;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 10px;
 }
 
 .print-location-title{
   width: 40px;
+}
+
+.print-extras{
+  width: 100%;
 }
 .checkbox{
   border-radius: 100%;
@@ -275,10 +279,20 @@ body{
   background-color: #242424;
 }
 
+.instructions{
+  font-size: 12px;
+  border-radius: 8px;
+  border-color: #6b7280;
+}
+
 .p-inputtext:enabled:focus{
   outline: 0;
   outline-offset: 0;
   box-shadow: 0 0 4.5px  #242424;
+  border-color:#242424;
+}
+
+.p-inputtext:enabled:hover{
   border-color:#242424;
 }
 

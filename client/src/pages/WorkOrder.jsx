@@ -5,6 +5,7 @@ import { headContainerAnimation, headTextAnimation, slideAnimation } from '../co
 import { CustomButton } from '../components';
 import FormSectionOne from '../components/FormSectionOne';
 import FormSectionTwo from '../components/FormSectionTwo';
+import FormSectionThree from '../components/FormSectionThree';
 const WorkOrder = () => {
 
     return (
@@ -19,15 +20,20 @@ const WorkOrder = () => {
                             <div className='form-container'>
                                 <form action="" className='workorder-form'>
                                     <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
-                                        <FormSectionOne/>
+                                        <FormSectionOne />
                                     </section>
                                     <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
-                                        <FormSectionTwo/>
+                                        <FormSectionTwo />
                                     </section>
-                                    <section>
-                                        third component
+                                    <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
+                                        <FormSectionThree />
+                                        <div className='flex justify-end pt-8'>
+                                    <CustomButton
+                                        title="Add Data"
+                                        customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
+                                    />
+                                    </div>
                                     </section>
-                                    <button>submit</button>
                                 </form>
                             </div>
                         </motion.div>

@@ -68,8 +68,21 @@ const FormSectionOne = () => {
                 </div>
                 <div className='align-center'>
                     <div className='input'>
-                        <label htmlFor="" className='form-input-title'>Expedite</label>
-                        <input type="text" className='form-input-text' placeholder='John Doe' />
+                        <label htmlFor="" className='form-input-title'>Expedite Order</label>
+                        <div className="gap-2 print-location">
+                            <div className=''>
+                                <p className='print-location-title'>3 day</p>
+                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                            </div>
+                            <div className=''>
+                                <p className='print-location-title'>2 day</p>
+                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                            </div>
+                            <div className=''>
+                                <p className='print-location-title'>1 Day</p>
+                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='align-center'>
