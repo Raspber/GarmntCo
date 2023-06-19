@@ -1,7 +1,7 @@
 import React from 'react'
 import { InputMask } from 'primereact/inputmask';
 
-const FormSectionOne = () => {
+const FormSectionOne = ({ handleChange1 }) => {
     return (
         <div>
             <section className='form-first-section'>
@@ -11,31 +11,31 @@ const FormSectionOne = () => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Work Order #</label>
-                        <input type="number" className='form-input-text' placeholder='ex 123546' />
+                        <input type="number" name="workOrder" onChange={handleChange1} className='form-input-text' placeholder='ex 123546' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Date</label>
-                        <input type="date" className='form-input-text' />
+                        <input type="date" name="date" onChange={handleChange1} className='form-input-text' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Customer</label>
-                        <input type="text" className='form-input-text' placeholder='John Doe' />
+                        <input type="text" name="customer" onChange={handleChange1} className='form-input-text' placeholder='John Doe' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Email</label>
-                        <input type="email" className='form-input-text' placeholder='example@email.com' />
+                        <input type="email" name="email" onChange={handleChange1} className='form-input-text' placeholder='example@email.com' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Phone</label>
-                        <InputMask mask="(999) 999 - 9999" placeholder="(xxx) xxx - xxxx" className='form-input-text' />
+                        <InputMask mask="(999) 999 - 9999" placeholder="(xxx) xxx - xxxx" name="phone" onChange={handleChange1} className='form-input-text' />
                     </div>
                 </div>
             </section>
@@ -43,7 +43,7 @@ const FormSectionOne = () => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Street Address</label>
-                        <input type="text" className='form-input-text' placeholder='1234 Street NW' />
+                        <input type="text" name="streetAddress" onChange={handleChange1} className='form-input-text' placeholder='1234 Street NW' />
                     </div>
                 </div>
             </section>
@@ -51,19 +51,19 @@ const FormSectionOne = () => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>City</label>
-                        <input type="text" className='form-input-text' placeholder='City' />
+                        <input type="text" name="city" onChange={handleChange1} className='form-input-text' placeholder='City' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>State/Province</label>
-                        <input type="email" className='form-input-text' placeholder='State' />
+                        <input type="email" name="state" onChange={handleChange1} className='form-input-text' placeholder='State' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Zip/Postal Code</label>
-                        <InputMask mask="99999" placeholder="xxxxx" className='form-input-text' />
+                        <InputMask mask="99999" placeholder="xxxxx" name="zip" onChange={handleChange1} className='form-input-text' />
                     </div>
                 </div>
                 <div className='align-center'>
@@ -72,15 +72,15 @@ const FormSectionOne = () => {
                         <div className="gap-2 print-location">
                             <div className=''>
                                 <p className='print-location-title'>3 day</p>
-                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="3day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                             <div className=''>
                                 <p className='print-location-title'>2 day</p>
-                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="2day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                             <div className=''>
                                 <p className='print-location-title'>1 Day</p>
-                                <input type="checkbox" className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="1day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                         </div>
                     </div>
@@ -88,13 +88,13 @@ const FormSectionOne = () => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Production Date</label>
-                        <input type="date" className='form-input-text-start' />
+                        <input type="date" name="productionDate" onChange={handleChange1} className='form-input-text-start' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>In Hands By</label>
-                        <input type="date" className='form-input-text-due'/>
+                        <input type="date" name="inHandsBy" onChange={handleChange1} className='form-input-text-due' />
                     </div>
                 </div>
             </section>

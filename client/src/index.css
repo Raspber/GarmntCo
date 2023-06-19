@@ -296,6 +296,13 @@ body{
   border-color:#242424;
 }
 
+.nothinghere-text{
+  font-family: nunito-sans, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  font-style: italic;
+}
+
 .colorpicker-container{
   height: 521px;
   width: 61.55px;

@@ -1,4 +1,4 @@
-const products = {
+const WorkOrderProductSection = {
     product: '',
     style: '',
     color: '',
@@ -17,4 +17,4 @@ const products = {
     instructions: '',
 }
 
-export default products;
+export default WorkOrderProductSection;
