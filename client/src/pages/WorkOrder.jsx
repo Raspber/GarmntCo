@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { headContainerAnimation, headTextAnimation, slideAnimation } from '../config/motion';
+import { headContainerAnimation, slideAnimation } from '../config/motion';
 import { CustomButton } from '../components';
 import FormSectionOne from '../components/FormSectionOne';
 import FormSectionTwo from '../components/FormSectionTwo';
@@ -64,17 +64,18 @@ const WorkOrder = () => {
                                     </section>
                                 </form>
                                 <div className='flex justify-end pt-8'>
-                                    <CustomButton
-                                        title="Print My Work Order"
-                                        customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
-                                    />
+                                    <Link to={'/printform'} state={[customerSection, previewData]} >
+                                        <CustomButton
+                                            title="Print My Work Order"
+                                            customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
+                                        /></Link>
                                 </div>
                             </div>
                         </motion.div>
                     </motion.div>
                 </motion.section>
                 <motion.div className="absolute z-16 top-9 right-5" {...slideAnimation("right")}>
-                    <Link to='/'>
+                    <Link to={'/'}>
                         <CustomButton
                             title="Back"
                             customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."

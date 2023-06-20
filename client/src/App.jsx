@@ -7,6 +7,7 @@ import WorkOrder from './pages/WorkOrder';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import PrintForm from './pages/PrintForm'
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
           <Canvas />
           <Customizer />
         </main>
-      }/>
+      } />
 {/* -----------------------Workorder Route------------------------------ */}
-      <Route path='/workorder' element={<WorkOrder/>}/>
+      <Route path='/workorder' element={<WorkOrder />} />
+{/* -----------------------Printform Route------------------------------ */}
+      <Route path='/printform' element={<PrintForm/>} />
     </Routes>
   )
 }

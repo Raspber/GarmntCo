@@ -9,14 +9,13 @@ import state from '../store';
 const CameraRig = ({ children }) => {
   const group = useRef();
   const snap = useSnapshot(state);
-  const { size, set } = useThree();
 
 
   // This will move the model on drag
   const bind = useDrag(({ offset: [y] }) => {
     const rotation = group.current.rotation.clone();
     rotation.x = 0;
-    rotation.y = y  * .01;
+    rotation.y = y * .01;
     rotation.z = 0;
     group.current.rotation.copy(rotation);
   });
@@ -27,16 +26,16 @@ const CameraRig = ({ children }) => {
 
     // set the initial position of the model
     let targetPosition = [-0.25, 0, 2.5];
-    if(snap.intro || snap.workorder && !snap.customizer) {
-      if(isBreakpoint) targetPosition = [0, 0, 2];
-      if(isMobile) targetPosition = [0, .2, 2.5];
+    if (snap.intro && snap.workorder && snap.customizer) {
+      if (isBreakpoint) targetPosition = [0, 0, 2];
+      if (isMobile) targetPosition = [0, .2, 2.5];
     } else {
-      if(isMobile) targetPosition = [0, 0, 2.5]
+      if (isMobile) targetPosition = [0, 0, 2.5]
       else targetPosition = [0, 0, 2];
     }
 
     // set model camera position
-    easing.damp3(state.camera.position, targetPosition, 0.25, delta)
+    easing.damp3(state.camera.position, targetPosition, .25, delta)
   });
 
   return (
