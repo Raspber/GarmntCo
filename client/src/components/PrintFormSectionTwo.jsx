@@ -1,15 +1,15 @@
 import React from 'react'
 import { InputTextarea } from 'primereact/inputtextarea'
 
-const FormSectionTwo = ({ previewData }) => {
-
+const PrintFormSectionTwo = ({ formInfo }) => {
+    
     return (
         <div>
-            {(!previewData || previewData.length === 0) ?
+            {(!formInfo || formInfo.length === 0) ?
                 <div className='flex justify-center'>
-                    <p className='nothinghere-text animate-pulse'>Submit your first product to the order...</p>
+                    <p className='nothinghere-text animate-pulse'>Nothing To Print. Please Submit Products First!</p>
                 </div> :
-                previewData.map((data, index) => (
+                formInfo.map((data, index) => (
                     <div key={index} className='mb-8 border-2 border-custom-black p-5 rounded-md'>
                         <section className='middle-first-section'>
                             <div className='align-center'>
@@ -118,4 +118,4 @@ const FormSectionTwo = ({ previewData }) => {
     )
 }
 
-export default FormSectionTwo
+export default PrintFormSectionTwo

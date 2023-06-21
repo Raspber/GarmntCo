@@ -14,13 +14,16 @@ const WorkOrder = () => {
 
     const [customerSection, setCustomerSection] = useState(WorkOrderCustomerSection);
     const [productSection, setProductSection] = useState(WorkOrderProductSection);
+    const [customerInfo, setCustomerInfo] = useState('');
     const [previewData, setPreviewData] = useState([]);
+
     const handleChange1 = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         setCustomerSection({
             ...customerSection,
             [e.target.name]: value,
         });
+        console.log('this is: customerSecton state-', customerSection)
     };
     const handleChange2 = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
@@ -29,10 +32,12 @@ const WorkOrder = () => {
             [e.target.name]: value,
         });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         setPreviewData([...previewData, productSection]);
         setProductSection(WorkOrderProductSection);
+        console.log('This is customer info, does it work?', customerSection)
     }
+
     return (
         <AnimatePresence>
             <>
@@ -64,7 +69,7 @@ const WorkOrder = () => {
                                     </section>
                                 </form>
                                 <div className='flex justify-end pt-8'>
-                                    <Link to={'/printform'} state={[customerSection, previewData]} >
+                                    <Link to={'/printform'} state={[customerSection, previewData]}>
                                         <CustomButton
                                             title="Print My Work Order"
                                             customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."

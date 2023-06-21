@@ -11,7 +11,7 @@ const FormSectionOne = ({ handleChange1 }) => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Work Order #</label>
-                        <input type="number" name="workOrder" onChange={handleChange1} className='form-input-text' placeholder='ex 123546' />
+                        <input type="number" name="work_order_number" onChange={handleChange1} className='form-input-text' placeholder='ex 123546' />
                     </div>
                 </div>
                 <div className='align-center'>
@@ -43,7 +43,7 @@ const FormSectionOne = ({ handleChange1 }) => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Street Address</label>
-                        <input type="text" name="streetAddress" onChange={handleChange1} className='form-input-text' placeholder='1234 Street NW' />
+                        <input type="text" name="street_address" onChange={handleChange1} className='form-input-text' placeholder='1234 Street NW' />
                     </div>
                 </div>
             </section>
@@ -72,15 +72,15 @@ const FormSectionOne = ({ handleChange1 }) => {
                         <div className="gap-2 print-location">
                             <div className=''>
                                 <p className='print-location-title'>3 day</p>
-                                <input type="checkbox" name="3day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="three_day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                             <div className=''>
                                 <p className='print-location-title'>2 day</p>
-                                <input type="checkbox" name="2day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="two_day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                             <div className=''>
                                 <p className='print-location-title'>1 Day</p>
-                                <input type="checkbox" name="1day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
+                                <input type="checkbox" name="one_day" onChange={handleChange1} className="checkbox appearance-none checked:bg-custom-black ..." />
                             </div>
                         </div>
                     </div>
@@ -88,13 +88,13 @@ const FormSectionOne = ({ handleChange1 }) => {
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>Production Date</label>
-                        <input type="date" name="productionDate" onChange={handleChange1} className='form-input-text-start' />
+                        <input type="date" name="production_date" onChange={handleChange1} className='form-input-text-start' />
                     </div>
                 </div>
                 <div className='align-center'>
                     <div className='input'>
                         <label htmlFor="" className='form-input-title'>In Hands By</label>
-                        <input type="date" name="inHandsBy" onChange={handleChange1} className='form-input-text-due' />
+                        <input type="date" name="in_hands_by" onChange={handleChange1} className='form-input-text-due' />
                     </div>
                 </div>
             </section>
