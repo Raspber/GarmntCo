@@ -108,6 +108,15 @@ body{
   @apply w-screen h-screen
 }
 
+.workorder-title{
+  font-family: nunito-sans, sans-serif;
+  font-weight: 900;
+  font-size: 80px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
 .form-container{
   width: 1024px;
   border: 3.5px solid #B2B2B2;

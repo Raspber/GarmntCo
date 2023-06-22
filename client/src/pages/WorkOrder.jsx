@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { headContainerAnimation, slideAnimation } from '../config/motion';
 import { CustomButton } from '../components';
@@ -14,7 +14,6 @@ const WorkOrder = () => {
 
     const [customerSection, setCustomerSection] = useState(WorkOrderCustomerSection);
     const [productSection, setProductSection] = useState(WorkOrderProductSection);
-    const [customerInfo, setCustomerInfo] = useState('');
     const [previewData, setPreviewData] = useState([]);
 
     const handleChange1 = (e) => {
@@ -43,7 +42,7 @@ const WorkOrder = () => {
             <>
                 <motion.section className='workorder-box' {...slideAnimation('left')}>
                     <motion.header >
-                        <h1 className='head-text'>Work Order</h1>
+                        <h1 className='workorder-title'>Work Order</h1>
                     </motion.header>
                     <motion.div className='workorder-content' {...headContainerAnimation}>
                         <motion.div {...slideAnimation}>

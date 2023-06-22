@@ -1,4 +1,4 @@
-import { productpicker, swatch, fileIcon, ai, download } from "../assets";
+import { productpicker, swatch, fileIcon, download } from "../assets";
 
 export const EditorTabs = [
   {
@@ -12,10 +12,6 @@ export const EditorTabs = [
   {
     name: "filepicker",
     icon: fileIcon,
-  },
-  {
-    name: "aipicker",
-    icon: ai,
   },
   {
     name: "download",

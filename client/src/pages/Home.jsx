@@ -43,12 +43,12 @@ const Home = () => {
                             className="flex flex-col gap-5"
                         >
                             <p className="max-w-md font-normal text-gray-600 text-base">
-                                Create your unique and exclusive shirt with our brand-new 3D customization tool. <strong>Unleash your imagination</strong>{" "} and define your own style.
+                                Need help creating work orders for your screen printing business? Start Here. Upload your order's graphic design onto our new 3D customizer. After, create and print your work order! <strong>It's that simple.</strong>
                             </p>
 
                             <CustomButton
                                 type="filled"
-                                title="Customize It"
+                                title="Try Now"
                                 handleClick={() => [state.intro = false, state.customizer = true]}
                                 customStyles=" w-fit text-white px-4 py-2.5 font-bold text-sm transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-300 ... animate-bounce"
                             />
