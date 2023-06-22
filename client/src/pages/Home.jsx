@@ -11,13 +11,8 @@ import {
 } from '../config/motion';
 
 const Home = () => {
-    const currentDate = new Date();
     const snap = useSnapshot(state);
 
-    const strongStyle = {
-        fontWeight: 'bold',
-        color: snap.color,
-    };
     return (
         <AnimatePresence>
             {snap.intro && (
