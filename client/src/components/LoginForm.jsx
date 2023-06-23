@@ -1,25 +1,26 @@
 import React from 'react'
+import { InputText } from 'primereact/inputtext';
+import { Checkbox } from 'primereact/checkbox';
+import { Button } from 'primereact/button';
 
 const LoginForm = () => {
     return (
         <div>
-            <form asp-action="LoginUser" method="post" class="shadow p-3 rounded">
-                <div class="row">
-                    <div class="col p-2 text-center">
-                        <span class="input-group-text bg-success bg-gradient text-light border-success mb-2" asp-for="EmailLogin">Email :</span>
-                        <input type="text" asp-for="LEmail" class="form-control"/>
-                    </div>
-                    <div class="col p-2 text-center">
-                        <span class="input-group-text bg-success bg-gradient text-light border-success mb-2" asp-for="PasswordLogin">Password :</span>
-                        <input type="password" asp-for="LPassword" class="form-control"/>
-                    </div>
+            <label htmlFor="email" className="block text-900 font-medium mb-2">Email</label>
+            <InputText id="email" type="text" placeholder="Email address" className="w-full mb-3" />
+
+            <label htmlFor="password" className="block text-900 font-medium mb-2">Password</label>
+            <InputText id="password" type="password" placeholder="Password" className="w-full mb-3" />
+
+            <div className="flex align-items-center justify-content-between mb-6 justify-between">
+                <div className="flex align-items-center text-xs">
+                    <Checkbox id="rememberme" onChange={e => setChecked(e.checked)} className="mr-2" />
+                    <label htmlFor="rememberme">Remember me</label>
                 </div>
-                <span asp-validation-for="LEmail" class="text-danger d-block text-center"></span>
-                <span asp-validation-for="LPassword" class="text-danger d-block text-center"></span>
-                <div class='d-flex justify-content-end'>
-                    <button type="submit" class='btn btn-success bg-gradient text-light'>Login</button>
-                </div>
-            </form>
+                <a className="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer text-xs">Forgot your password?</a>
+            </div>
+
+            <Button label="Sign In" icon="pi pi-user" className="w-full" />
         </div>
     )
 }

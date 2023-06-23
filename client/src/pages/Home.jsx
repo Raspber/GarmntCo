@@ -63,6 +63,7 @@ const Home = () => {
                             handleClick={() => setVisibleRegister(true)}
                             title="Register"
                             customStyles="nav-buttons mr-4"
+                            
                         />
                         <Sidebar visible={logInVisible} onHide={() => setLogInVisible(false)} position="right">
                             <LoginForm/>

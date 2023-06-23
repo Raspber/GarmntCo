@@ -1,32 +1,18 @@
 import React from 'react'
+import { InputText } from 'primereact/inputtext';
+import { Checkbox } from 'primereact/checkbox';
+import { Button } from 'primereact/button';
 
 const RegisterForm = () => {
     return (
         <div>
-            <form asp-action="CreateUser" method="post" class="shadow p-3 rounded">
-                <div class="row">
-                    <div class='col p-2 text-center'>
-                        <span class=" input-group-text bg-dark bg-gradient text-light border-dark mb-2" asp-for="Email">Email :</span>
-                        <input type="text" asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-2 text-center">
-                        <span class="input-group-text bg-dark bg-gradient text-light border-dark mb-2" asp-for="Password">Password :</span>
-                        <input type="password" asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="col p-2 text-center">
-                        <span class="input-group-text bg-dark bg-gradient text-light border-dark mb-2" asp-for="ConfirmPassword">Confirm Password :</span>
-                        <input type="password" asp-for="PasswordConfirm" class="form-control" />
-                        <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class='d-flex justify-content-end'>
-                    <button type="submit" class='btn btn-dark bg-gradient text-light'>Register</button>
-                </div>
-            </form>
+            <label htmlFor="email" className="block text-900 font-medium mb-2">Email</label>
+            <InputText id="email" type="text" placeholder="Email address" className="w-full mb-3" />
+            <label htmlFor="password" className="block text-900 font-medium mb-2">Password</label>
+            <InputText id="password" type="password" placeholder="Password" className="w-full mb-3" />
+            <label htmlFor="confirm_password" className="block text-900 font-medium mb-2">Confirm Password</label>
+            <InputText id="confirm_password" type="password" placeholder="Password" className="w-full mb-3" />
+            <Button label="Register" icon="pi pi-user" className="w-full" />
         </div>
     )
 }
