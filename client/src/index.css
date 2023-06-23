@@ -114,7 +114,7 @@ body{
   font-size: 80px;
   font-style: italic;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
 }
 .form-container{
@@ -236,6 +236,9 @@ body{
 
 .middle-second-section{
   @apply grid grid-cols-8 gap-8 items-center pb-8;
+}
+.nav-buttons{
+  @apply w-auto bg-custom-black text-white px-4 py-2.5 font-bold transition-all duration-500 ease-in-out hover:translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black;
 }
 
 .shirt-sizes{

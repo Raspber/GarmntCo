@@ -4,10 +4,13 @@ import Canvas from './canvas';
 import Customizer from './pages/Customizer';
 import Home from './pages/Home';
 import WorkOrder from './pages/WorkOrder';
+import PrintForm from './pages/PrintForm'
+import Register from './pages/Register';
+import Login from './pages/Login';
+
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import PrintForm from './pages/PrintForm'
 
 function App() {
   return (
@@ -21,9 +24,13 @@ function App() {
         </main>
       } />
 {/* -----------------------Workorder Route------------------------------ */}
-      <Route path='/workorder' element={<WorkOrder />} />
+      <Route path='/workorder' element={<WorkOrder/>}/>
 {/* -----------------------Printform Route------------------------------ */}
-      <Route path='/printform' element={<PrintForm/>} />
+      <Route path='/printform' element={<PrintForm/>}/>
+{/* -----------------------Register Route------------------------------ */}
+      <Route path='/register' element={<Register/>}/>
+{/* -----------------------Printform Route------------------------------ */}
+      <Route path='/login' element={<Login/>}/>
     </Routes>
   )
 }
