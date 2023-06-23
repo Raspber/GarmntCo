@@ -41,10 +41,10 @@ const WorkOrder = () => {
                 <motion.section className='workorder-box' {...slideAnimation('left')}>
                     <motion.header >
                         <h1 className='workorder-title'>Work Order</h1>
-                        <p className='w-4/6 font-normal text-custom-black mb-12 m-auto text-start'>Unleash efficiency with GARMNT's work order form. Fill in your details, specify your product preferences, and let us take care of the rest. Our form ensures a smooth production run, whether you're ordering for a small team or a major event. Plus, we guarantee your privacy. We don't store your data, we just use it to process your order. Get started now for a streamlined, secure ordering experience!</p>
-                        <p className='w-4/6 font-normal text-custom-black mb-12 m-auto text-start'>Experience GARMNT at its best by creating an account today! Benefit from exclusive features like editing product rows, saving customer details, and retaining orders.  <strong><Link to={'/register'}>Sign up now</Link></strong> for a seamless, enhanced GARMNT experience.</p>
+                        <p className='w-4/6  text-custom-black mb-12 m-auto text-start'>Unleash efficiency with GARMNT's work order form. Fill in your details, specify your product preferences, and let us take care of the rest. Our form ensures a smooth production run, whether you're ordering for a small team or a major event. Plus, we guarantee your privacy. We don't store your data, we just use it to process your order. Get started now for a streamlined, secure ordering experience!</p>
+                        <p className='w-4/6 text-custom-black mb-12 m-auto text-start'>Experience GARMNT at its best by creating an account today! Benefit from exclusive features like editing product rows, saving customer details, and retaining orders.  <strong><Link to={'/register'}>Sign up now</Link></strong> for a seamless, enhanced GARMNT experience.</p>
                     </motion.header>
-                    <motion.div className='workorder-content' {...headContainerAnimation}>
+                    <motion.div className='workorder-content pb-24' {...headContainerAnimation}>
                         <motion.div {...slideAnimation}>
                             <div className='form-container'>
                                 <form onSubmit={e => e.preventDefault()} className='workorder-form'>
