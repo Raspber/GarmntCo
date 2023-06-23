@@ -70,7 +70,7 @@ const Home = () => {
                         </Sidebar>
                         <CustomButton
                             handleClick={() => setLogInVisible(true)}
-                            title="Log In"
+                            title="Sign In"
                             customStyles="nav-buttons"
                         />
                     </motion.div>
