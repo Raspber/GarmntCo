@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
 import { CustomButton } from '../components';
 import {
     headContainerAnimation,
@@ -10,11 +10,15 @@ import {
     fadeAnimation
 } from '../config/motion';
 import state from '../store';
-import Register from './Register';
-import Login from './Login';
+
+import { Sidebar } from 'primereact/sidebar'
+import RegisterForm from '../components/RegisterForm';
+import LoginForm from '../components/LoginForm';
+
 const Home = () => {
     const snap = useSnapshot(state);
-
+    const [visibleRegister, setVisibleRegister] = useState(false);
+    const [logInVisible, setLogInVisible] = useState(false);
     return (
         <AnimatePresence>
             {snap.intro && (
@@ -52,18 +56,22 @@ const Home = () => {
                         className="absolute z-10 top-8 right-36"
                         {...fadeAnimation}
                     >
-                        <Link to='/register' element={<Register />} className='pr-3'>
-                            <CustomButton
-                                title="Register"
-                                customStyles="nav-buttons"
-                            />
-                        </Link>
-                        <Link to='/login' element={<Login />}>
-                            <CustomButton
-                                title="Log In"
-                                customStyles="nav-buttons"
-                            />
-                        </Link>
+                        <Sidebar visible={visibleRegister} onHide={() => setVisibleRegister(false)} position="right">
+                            <RegisterForm/>
+                        </Sidebar>
+                        <CustomButton
+                            handleClick={() => setVisibleRegister(true)}
+                            title="Register"
+                            customStyles="nav-buttons mr-4"
+                        />
+                        <Sidebar visible={logInVisible} onHide={() => setLogInVisible(false)} position="right">
+                            <LoginForm/>
+                        </Sidebar>
+                        <CustomButton
+                            handleClick={() => setLogInVisible(true)}
+                            title="Log In"
+                            customStyles="nav-buttons"
+                        />
                     </motion.div>
                 </motion.section>
             )}
