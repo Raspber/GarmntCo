@@ -341,3 +341,7 @@ input[type="file"] {
   position: absolute;
   opacity: 0;
 }
+
+.btn-icons{
+  height: 5px;
+}

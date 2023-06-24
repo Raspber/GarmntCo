@@ -9,6 +9,7 @@ import FormSectionThree from '../components/FormSectionThree';
 import WorkOrderCustomerSection from '../components/WorkorderCustomerSection';
 import WorkOrderProductSection from '../components/WorkOrderProductSection';
 
+import 'primeicons/primeicons.css';
 
 const WorkOrder = () => {
 
@@ -80,7 +81,7 @@ const WorkOrder = () => {
                                             <CustomButton
                                                 handleClick={() => { handleSubmit(); }}
                                                 title="Add Product"
-                                                customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ..."
+                                                customStyles="w-fit text-white px-4 py-2.5 font-bold transition ease-in-out delay-50 bg-custom-black hover:-translate-y-1 hover:scale-110 hover:bg-custom-gray hover:text-custom-black duration-500 ...pi-file"
                                             />
                                         </div>
                                     </section>

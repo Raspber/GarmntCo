@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CustomButton = ({ title, customStyles, handleClick }) => {
+const CustomButton = ({ title, customStyles, handleClick, icon }) => {
 
 
   return (
@@ -8,7 +8,7 @@ const CustomButton = ({ title, customStyles, handleClick }) => {
       className={` object-contain px-2 py-1.5 rounded-md text-xs ${customStyles}`}
       onClick={handleClick}
     >
-      {title}
+      {title} {icon && <img src={icon} alt="Button Icon"/>}
     </button>
   )
 }

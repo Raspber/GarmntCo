@@ -12,21 +12,24 @@ const FormSectionTwo = ({ previewData, handleProductDelete, handleEdit, handleSa
                     <p className='nothinghere-text animate-pulse'>Submit your first product to the order...</p>
                 </div> :
                 previewData.map((data, index) => (
-                    <div key={index} className='border-2 border-custom-gray p-5 rounded-md'>
+                    <div key={index} className='m-4 border-2 border-custom-gray p-5 rounded-md'>
 
                         {!data.isEditing ? (
                             <div>
                                 <div className='flex flex-row justify-end mb-6'>
                                     <CustomButton
                                         handleClick={() => handleEdit(index)}
-                                        title=" Edit"
-                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none ... pi pi-file-edit
-                                        mr-4"
+                                        title="Edit"
+                                        icon="./edit.png"
+                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000...
+                                        mr-4 flex flex-col items-center"
                                     />
                                     <CustomButton
                                         handleClick={() => handleProductDelete(index)}
                                         title=" Delete"
-                                        customStyles="w-fit text-red-600 transition ease-in-out bg-none hover:text-red-800 hover:-translate-y-1 hover:scale-110 hover:bg-none ... pi pi-file-excel mr-4"
+                                        icon='./delete.png'
+                                        style='text-align: -webkit-center;'
+                                        customStyles="w-fit text-red-800 transition ease-in-out bg-none hover:text-red-600 hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000... mr-4 flex flex-col items-center"
                                     />
                                 </div>
                                 <section className='middle-first-section'>
@@ -136,7 +139,8 @@ const FormSectionTwo = ({ previewData, handleProductDelete, handleEdit, handleSa
                                     <CustomButton
                                         handleClick={() => handleSave(index)}
                                         title=" Save"
-                                        customStyles="w-fit text-lime-500 transition ease-in-out bg-none hover:-translate-y-1 hover:scale-110 hover:text-lime-800 hover:bg-none duration-500 ... pi pi-save"
+                                        icon="./save.png"
+                                        customStyles="w-fit text-lime-800 transition ease-in-out bg-none hover:-translate-y-1 hover:scale-110 hover:text-lime-600 hover:bg-none duration-1000 ...flex flex-col items-center"
                                     />
                                 </div>
                                 <section className='middle-first-section'>
