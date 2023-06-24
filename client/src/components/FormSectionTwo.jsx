@@ -20,13 +20,13 @@ const FormSectionTwo = ({ previewData, handleProductDelete, handleEdit, handleSa
                                     <CustomButton
                                         handleClick={() => handleEdit(index)}
                                         title=" Edit"
-                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none duration-500 ... pi pi-file-edit
+                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none ... pi pi-file-edit
                                         mr-4"
                                     />
                                     <CustomButton
                                         handleClick={() => handleProductDelete(index)}
                                         title=" Delete"
-                                        customStyles="w-fit text-red-600 transition ease-in-out bg-none hover:text-red-800 hover:-translate-y-1 hover:scale-110 hover:bg-none duration-500 ... pi pi-file-excel mr-4"
+                                        customStyles="w-fit text-red-600 transition ease-in-out bg-none hover:text-red-800 hover:-translate-y-1 hover:scale-110 hover:bg-none ... pi pi-file-excel mr-4"
                                     />
                                 </div>
                                 <section className='middle-first-section'>
