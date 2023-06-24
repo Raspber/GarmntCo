@@ -31,10 +31,28 @@ const WorkOrder = () => {
         });
     };
     const handleSubmit = () => {
-        setPreviewData([...previewData, productSection]);
+        setPreviewData([...previewData, {...productSection, isEditing: false}]);
         setProductSection(WorkOrderProductSection);
+    };
+    const handleProductDelete = (deleteIdx) => {
+        const filteredPreviewData = previewData.filter((_, index) => index !== deleteIdx);
+        setPreviewData(filteredPreviewData);
     }
-
+    const handleEdit = (editIdx) => {
+        const editPreviewData = [...previewData];
+        editPreviewData[editIdx].isEditing = true;
+        setPreviewData(editPreviewData);
+    };
+    const handleSave = (saveIdx) => {
+        const updatedPreviewData = [...previewData];
+        updatedPreviewData[saveIdx] = {...updatedPreviewData[saveIdx], isEditing: false};
+        setPreviewData(updatedPreviewData);
+    };
+    const handleProductChange = (index, field, value) => {
+        const updatedPreviewData = [...previewData];
+        updatedPreviewData[index][field] = value;
+        setPreviewData(updatedPreviewData);
+    };
     return (
         <AnimatePresence>
             <>
@@ -52,7 +70,7 @@ const WorkOrder = () => {
                                         <FormSectionOne handleChange1={handleChange1} />
                                     </section>
                                     <section className='mb-8 border-2 border-custom-black p-5 rounded-md'>
-                                        <FormSectionTwo previewData={previewData} />
+                                        <FormSectionTwo previewData={previewData} handleProductDelete={handleProductDelete} handleEdit={handleEdit} handleSave={handleSave} handleProductChange={handleProductChange}/>
                                     </section>
                                 </form>
                                 <form onSubmit={e => e.preventDefault()} className='workorder-form'>
@@ -67,7 +85,7 @@ const WorkOrder = () => {
                                         </div>
                                     </section>
                                 </form>
-                                <div className='flex justify-end pt-8'>
+                                <div className='flex justify-end'>
                                     <Link to={'/printform'} state={[customerSection, previewData]}>
                                         <CustomButton
                                             title="Print My Work Order"
