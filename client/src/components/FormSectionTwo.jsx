@@ -21,7 +21,7 @@ const FormSectionTwo = ({ previewData, handleProductDelete, handleEdit, handleSa
                                         handleClick={() => handleEdit(index)}
                                         title="Edit"
                                         icon="./edit.png"
-                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000...
+                                        customStyles="w-fit text-custom-black transition ease-in-out bg-none hover:text-black hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000 ...
                                         mr-4 flex flex-col items-center"
                                     />
                                     <CustomButton
@@ -29,7 +29,7 @@ const FormSectionTwo = ({ previewData, handleProductDelete, handleEdit, handleSa
                                         title=" Delete"
                                         icon='./delete.png'
                                         style='text-align: -webkit-center;'
-                                        customStyles="w-fit text-red-800 transition ease-in-out bg-none hover:text-red-600 hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000... mr-4 flex flex-col items-center"
+                                        customStyles="w-fit text-red-800 transition ease-in-out bg-none hover:text-red-600 hover:-translate-y-1 hover:scale-110 hover:bg-none duration-1000 ... mr-4 flex flex-col items-center"
                                     />
                                 </div>
                                 <section className='middle-first-section'>
