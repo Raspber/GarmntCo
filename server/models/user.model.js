@@ -37,5 +37,4 @@ const User = mongoose.model('User', userSchema);
 // However, always exporting an object makes it easier to add more exports later (just add another key) and code that
 // imports won't be broken by that change.
 
-console.log('User model created');
 module.exports = { User: User };

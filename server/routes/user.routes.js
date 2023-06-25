@@ -18,7 +18,6 @@ router.get('/:id', handleGetUserById);
 router.put('/:id', handleUpdateUserById);
 router.delete('/:id', handleDeleteUserById);
 
-console.log('User routes created');
 module.exports = {
   userRouter: router,
 };

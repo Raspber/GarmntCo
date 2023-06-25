@@ -29,4 +29,4 @@ app.use(express.json());
 // '/api/destinations will be prepended to all the routes added onto the destinationRouter
 app.use('/api/users', userRouter);
 
-app.listen(port, () => console.log(`Listening on port ${port} for REQuests to RESpond to.`));
+app.listen(port, () => console.log(`Listening on port ${port} for Requests to Respond to.`));

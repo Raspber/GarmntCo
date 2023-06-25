@@ -63,7 +63,6 @@ const handleDeleteUserById = async (req, res) => {
   }
 };
 
-console.log('User controller created');
 module.exports = {
   // long-form - key: value
   handleCreateUser: handleCreateUser,
