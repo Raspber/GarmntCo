@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // These env variables are retrieved from the .env file (which is git ignored).
 const uri = process.env.ATLAS_URI;
@@ -8,5 +8,5 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log('Database connected.'))
-  .catch((err) => console.log('Database connection error:', err));
+  .then(() => console.log("Database connected."))
+  .catch((err) => console.log("Database connection error:", err));

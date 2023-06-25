@@ -6,7 +6,6 @@ const {
   handleGetUserById,
   handleUpdateUserById,
   handleDeleteUserById,
-  handleCreateManyUsers,
 } = require('../controllers/user.controller');
 
 const router = express.Router();
@@ -18,9 +17,6 @@ router.get('/', handleGetAllUsers);
 router.get('/:id', handleGetUserById);
 router.put('/:id', handleUpdateUserById);
 router.delete('/:id', handleDeleteUserById);
-
-// This route isn't needed on the exam:
-router.post('/many', handleCreateUser);
 
 console.log('User routes created');
 module.exports = {
