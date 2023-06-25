@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { InputText } from 'primereact/inputtext';
 import CustomButton from './CustomButton';
 
 const RegisterForm = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] =  useState('');
+    
     return (
         <div>
             <label htmlFor="firstName" className="block text-900 font-medium mb-2">First Name</label>
