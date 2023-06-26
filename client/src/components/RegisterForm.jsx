@@ -18,11 +18,11 @@ const RegisterForm = () => {
         e.preventDefault();
         const newUser = { firstName, lastName, email, password, confirmPassword };
         axios
-            .post("http://localhost:8000/api/register", newUser, {
+            .post("http://localhost:8000/api/users/register", newUser, {
                 withCredentials: true
             })
             .then((res) => {
-                setfirstName('');
+                setFirstName('');
                 setLastName('');
                 setEmail('');
                 setPassword('');
@@ -30,7 +30,12 @@ const RegisterForm = () => {
                 navigate('/dashboard')
             })
             .catch((err) => {
-                setErrors(err.response.data.errors)
+                if (err.response && err.response.data && err.response.data.errors) {
+                    setErrors(err.response.data.errors);
+                } else {
+                    // Handle error without response data here.
+                    console.log(err);
+                }
             })
     }
     return (
