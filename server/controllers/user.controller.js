@@ -1,7 +1,9 @@
-const { User } = require('../models/user.model');
+const { User } = require("../models/user.model");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-const handleCreateUser = async (req, res) => {
-  console.log('controller: handleCreateUser', req.body);
+const handleRegister = async (req, res) => {
+  console.log("controller: handleCreateUser", req.body);
 
   try {
     // Destination.create will take the data and translate it into the appropriate DB query language for us.
@@ -14,8 +16,27 @@ const handleCreateUser = async (req, res) => {
   }
 };
 
+const handleLogin = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
+      expiresIn: "10h",
+    });
+    return res.json({ token, user });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 const handleGetAllUsers = async (req, res) => {
-  console.log('controller: handleGetAllUsers');
 
   try {
     const users = await User.find();
@@ -26,7 +47,7 @@ const handleGetAllUsers = async (req, res) => {
 };
 
 const handleGetUserById = async (req, res) => {
-  console.log('controller: handleGetUserById', req.params);
+  console.log("controller: handleGetUserById", req.params);
 
   try {
     const user = await User.findById(req.params.id);
@@ -37,7 +58,7 @@ const handleGetUserById = async (req, res) => {
 };
 
 const handleUpdateUserById = async (req, res) => {
-  console.log('controller: handleUpdateUserById', req.params, req.body);
+  console.log("controller: handleUpdateUserById", req.params, req.body);
 
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -53,7 +74,7 @@ const handleUpdateUserById = async (req, res) => {
 };
 
 const handleDeleteUserById = async (req, res) => {
-  console.log('controller: handleDeleteUserById', req.params);
+  console.log("controller: handleDeleteUserById", req.params);
 
   try {
     const user = await User.findByIdAndDelete(req.params.id);
@@ -64,9 +85,9 @@ const handleDeleteUserById = async (req, res) => {
 };
 
 module.exports = {
-  // long-form - key: value
-  handleCreateUser: handleCreateUser,
   // shorthand when the key name matches the value name:
+  handleRegister,
+  handleLogin,
   handleGetAllUsers,
   handleGetUserById,
   handleUpdateUserById,
