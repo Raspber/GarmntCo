@@ -30,13 +30,14 @@ const RegisterForm = () => {
                 navigate('/dashboard')
             })
             .catch((err) => {
-                if (err.response && err.response.data && err.response.data.errors) {
-                    setErrors(err.response.data.errors);
+                // If the server returned a message, display it
+                if (err.response.data.message) {
+                    setErrors({ message: err.response.data.message });
                 } else {
-                    // Handle error without response data here.
-                    console.log(err);
+                    // Otherwise, display the validation errors
+                    setErrors(err.response.data.errors);
                 }
-            })
+            });
     }
     return (
         <form onSubmit={handleRegister}>
@@ -52,7 +53,7 @@ const RegisterForm = () => {
             />
 
             {errors?.firstName && (
-                <span>
+                <span className='text-red-600'>
                     {errors.firstName?.properties?.message}
                 </span>
             )}
@@ -68,7 +69,7 @@ const RegisterForm = () => {
             />
 
             {errors?.lastName && (
-                <span>
+                <span className='text-red-600'>
                     {errors.lastName?.properties?.message}
                 </span>
             )}
@@ -82,9 +83,13 @@ const RegisterForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
             />
-
+            {errors?.message && (
+                <span className='text-red-600'>
+                    {errors.message}
+                </span>
+            )}
             {errors?.email && (
-                <span>
+                <span className='text-red-600'>
                     {errors.email?.properties?.message}
                 </span>
             )}
@@ -100,7 +105,7 @@ const RegisterForm = () => {
             />
 
             {errors?.password && (
-                <span>
+                <span className='text-red-600'>
                     {errors.password?.properties?.message}
                 </span>
             )}
@@ -115,14 +120,15 @@ const RegisterForm = () => {
                 value={confirmPassword}
             />
             {errors?.confirmPassword && (
-                <span>
+                <span className='text-red-600'>
                     {errors.confirmPassword?.properties?.message}
                 </span>
             )}
-
+            <br />
             <CustomButton
                 title="Register"
-                customStyles="nav-buttons"
+                customStyles="nav-buttons mt-3"
+                handleClick={handleRegister}
             />
         </form>
     )

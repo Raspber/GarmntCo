@@ -7,24 +7,24 @@ const UserSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: [true, "{PATH} is required."],
+      required: [true, "First Name Is Required."],
     },
     lastName: {
       type: String,
-      required: [true, "{PATH} is required."],
+      required: [true, "Last Name Is Required."],
     },
     email: {
       type: String,
-      required: [true, "{PATH} is required."],
+      required: [true, "Email Is Required."],
       validate: {
         validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
-        message: "Please enter a valid {PATH}",
+        message: "Please Enter A Valid Email",
       }
     },
     password: {
       type: String,
-      required: [true, "{PATH} is required."],
-      minlength: [8, "{PATH} must be at least {MINLENGTH} characters."],
+      required: [true, "Password is required."],
+      minlength: [8, "Password Must Be At Least {MINLENGTH} Characters."],
     },
   },
   { timestamps: true } // adds createdAt and updatedAt.
@@ -36,7 +36,7 @@ UserSchema.virtual("confirmPassword")
 
 UserSchema.pre("validate", function (next) {
   if (this.password !== this.confirmPassword) {
-    this.invalidate("confirmPassword", "Password must match confirm password");
+    this.invalidate("confirmPassword", "Passwords Do Not Match");
   }
   next();
 });
