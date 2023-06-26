@@ -5,8 +5,8 @@ import Customizer from './pages/Customizer';
 import Home from './pages/Home';
 import WorkOrder from './pages/WorkOrder';
 import PrintForm from './pages/PrintForm'
-import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -27,8 +27,8 @@ function App() {
       <Route path='/workorder' element={<WorkOrder/>}/>
 {/* -----------------------Printform Route------------------------------ */}
       <Route path='/printform' element={<PrintForm/>}/>
-{/* -----------------------Register Route------------------------------ */}
-      <Route path='/register' element={<Register/>}/>
+{/* -----------------------Dashboard Route------------------------------ */}
+      <Route path='/dashboard' element={<Dashboard/>}/>
 {/* -----------------------Printform Route------------------------------ */}
       <Route path='/login' element={<Login/>}/>
     </Routes>

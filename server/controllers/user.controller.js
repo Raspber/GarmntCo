@@ -2,13 +2,15 @@ const { User } = require("../models/user.model");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
+
 const handleRegister = async (req, res) => {
-  console.log("controller: handleCreateUser", req.body);
 
   try {
     // Destination.create will take the data and translate it into the appropriate DB query language for us.
     const user = await User.create(req.body);
-
+    const userToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "10h"})
+    res.cookie("userToken", userToken, { httpOnly: true })
     return res.json(user);
   } catch (error) {
     // Using a .status http failure code means the .catch on the front end will be triggered
@@ -30,6 +32,8 @@ const handleLogin = async (req, res) => {
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "10h",
     });
+    //To set the cookie in the response
+    req.cookie("token", token, { httpOnly: true })
     return res.json({ token, user });
   } catch (error) {
     return res.status(400).json({ message: error.message });

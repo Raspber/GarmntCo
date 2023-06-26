@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {
-  handleCreateUser,
+  handleRegister,
   handleGetAllUsers,
   handleGetUserById,
   handleUpdateUserById,
@@ -12,7 +12,7 @@ const router = express.Router();
 
 // In the server.js the prefix /users will be added to this url
 // Notice handleCreateUser is not called now, it's a callback, it will be called later, when the route is visited
-router.post('/', handleCreateUser);
+router.post('/register', handleRegister);
 router.get('/', handleGetAllUsers);
 router.get('/:id', handleGetUserById);
 router.put('/:id', handleUpdateUserById);

@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 
 const { userRouter } = require('./routes/user.routes');
+const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT
 
@@ -18,10 +19,10 @@ const app = express();
 app.use is adding 'middleware':
 stuff that happens in the middle of the the request and response.
 */
-
+app.use(cookieParser());
 // avoid CORS error since our front-end is running on a different port
 // so our requests are 'cross origin' port 3000 -> 8080
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 
 // req.body undefined without this!
 app.use(express.json());
