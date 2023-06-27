@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 
 
 const handleRegister = async (req, res) => {
+  console.log("controller: handleGetUserById", req.params);
+
   try {
     // Check if a user with the provided email already exists
     const existingUser = await User.findOne({ email: req.body.email });
@@ -17,11 +19,11 @@ const handleRegister = async (req, res) => {
     // If the user does not exist, create a new user
     const user = await User.create(req.body);
 
-    const userToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "10h" })
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "10h" })
+    const userData = await User.findById(user._id);
+    res.cookie("token", token, { httpOnly: true })
 
-    res.cookie("userToken", userToken, { httpOnly: true })
-
-    return res.json(user);
+    return res.json(userData, token);
   } catch (error) {
     return res.status(400).json({ ...error, message: error.message });
   }
@@ -42,12 +44,28 @@ const handleLogin = async (req, res) => {
       expiresIn: "10h",
     });
     //To set the cookie in the response
-    req.cookie("token", token, { httpOnly: true })
+    res.cookie("token", token, { httpOnly: true })
     return res.json({ token, user });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
 };
+
+const handleLoggedUser= async (req, res) => {
+  try {
+    const decodedJWT = jst.decode(req.cookies.token, {complete:true});
+    const user = await User.findById(decodedJWT.payload._id)
+    return res.json(user);
+  }catch(error){
+    return res.status(400).json({ ...error, message: error.message })
+  }
+};
+
+const handleLogout = async (req, res) => {
+  res.clearCookie("token");
+  res.status(200).json({ message: "Logout Successful" });
+}
+
 
 const handleGetAllUsers = async (req, res) => {
 
@@ -101,6 +119,8 @@ module.exports = {
   // shorthand when the key name matches the value name:
   handleRegister,
   handleLogin,
+  handleLoggedUser,
+  handleLogout,
   handleGetAllUsers,
   handleGetUserById,
   handleUpdateUserById,

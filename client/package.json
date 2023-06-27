@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "chroma-js": "^2.4.2",
     "framer-motion": "^10.12.7",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "maath": "^0.5.3",
     "primeicons": "^6.0.1",

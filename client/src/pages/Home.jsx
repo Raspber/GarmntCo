@@ -15,7 +15,7 @@ import { Sidebar } from 'primereact/sidebar'
 import RegisterForm from '../components/RegisterForm';
 import LoginForm from '../components/LoginForm';
 
-const Home = () => {
+const Home = ({logoutMessage}) => {
     const snap = useSnapshot(state);
     const [visibleRegister, setVisibleRegister] = useState(false);
     const [logInVisible, setLogInVisible] = useState(false);
@@ -26,6 +26,7 @@ const Home = () => {
                     className="home"
                     {...slideAnimation('left')}
                 >
+                    {logoutMessage &&  <p>{logoutMessage}</p>}
                     <motion.header >
                         <img
                             src='./garmnt_logo.png'

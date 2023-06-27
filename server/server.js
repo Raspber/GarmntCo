@@ -28,6 +28,6 @@ app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 app.use(express.json());
 
 // '/api/destinations will be prepended to all the routes added onto the destinationRouter
-app.use('/api/users', userRouter);
+app.use('/api', userRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port} for Requests to Respond to.`));

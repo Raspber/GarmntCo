@@ -18,9 +18,7 @@ const RegisterForm = () => {
         e.preventDefault();
         const newUser = { firstName, lastName, email, password, confirmPassword };
         axios
-            .post("http://localhost:8000/api/users/register", newUser, {
-                withCredentials: true
-            })
+            .post("http://localhost:8000/api/register", newUser)
             .then((res) => {
                 setFirstName('');
                 setLastName('');
