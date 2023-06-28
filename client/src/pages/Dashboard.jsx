@@ -1,31 +1,25 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { CustomButton } from '../components'
-import Cookies from 'js-cookie'
-import axios from 'axios'
-const Dashboard = ({ setLogoutMessage }) => {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CustomButton } from '../components';
+import axios from 'axios';
+
+const Dashboard = () => {
     const navigate = useNavigate();
-    const handleLogout = (e) => {
+
+    const handleLogout = () => {
         axios
-            .post("http://localhost:8000/api/logout", { withCredentials: true })
-            .then((res) => {
-                Cookies.remove('token');
-                setLogoutMessage(response.data.message);
-                navigate('/')
+            .post('http://localhost:8000/api/logout')
+            .then(() => {
+                navigate('/');
             })
             .catch((err) => {
-                //If the server returned a message, display it
-                if(err.response.data.message){
-                    setLogoutMessage({message: err.response.data.message });
-                } else{
-                //otherwise, display the validation errors.
-                    setLogoutMessage(err.response.data.errors);
-                }
+                console.error('Logout error:', err);
             });
-    }
+    };
+
     return (
         <div>
-            <h1 className='head-text'>dashboard</h1>
+            <h1 className="head-text">Dashboard</h1>
             <CustomButton
                 title="Log Out"
                 customStyles="nav-buttons"
@@ -33,7 +27,7 @@ const Dashboard = ({ setLogoutMessage }) => {
                 icon=""
             />
         </div>
-    )
-}
+    );
+};
 
-export default Dashboard
+export default Dashboard;

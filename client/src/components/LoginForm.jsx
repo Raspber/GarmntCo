@@ -16,7 +16,7 @@ const LoginForm = () => {
         e.preventDefault();
         const loggedUser = { email, password };
         axios
-            .post("http://localhost:8000/api/login", loggedUser, { withCredentials: true })
+            .post("http://localhost:8000/api/login", loggedUser)
             .then((res) => {
                 setEmail('');
                 setPassword('');
@@ -52,17 +52,10 @@ const LoginForm = () => {
                 className="w-full mb-3 rounded-md"
                 onChange={(e) => setPassword(e.target.value)}
             />
-
-            <div className="flex align-items-center justify-content-between mb-6 justify-between">
-                <div className="flex align-items-center text-xs">
-                    <Checkbox name="rememberme" onChange={e => setChecked(e.checked)} className="mr-2" />
-                    <label htmlFor="rememberme">Remember me</label>
-                </div>
-                <a className="font-medium no-underline ml-2 text-custom-black text-right cursor-pointer text-xs">Forgot your password?</a>
-            </div>
+            {errors && <p className='text-red-600'>{errors.message}</p>}
             <CustomButton
                 title="Sign In"
-                customStyles="nav-buttons"
+                customStyles="nav-buttons  mt-3"
             />
         </form>
     )

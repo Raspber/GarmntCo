@@ -1,12 +1,9 @@
 const { User } = require("../models/user.model");
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
-
-
+// Handles user registration
 const handleRegister = async (req, res) => {
-  console.log("controller: handleGetUserById", req.params);
-
+  console.log("this is the register server side" , req.body)
   try {
     // Check if a user with the provided email already exists
     const existingUser = await User.findOne({ email: req.body.email });
@@ -19,110 +16,96 @@ const handleRegister = async (req, res) => {
     // If the user does not exist, create a new user
     const user = await User.create(req.body);
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "10h" })
-    const userData = await User.findById(user._id);
-    res.cookie("token", token, { httpOnly: true })
-
-    return res.json(userData, token);
+    // Store the user's ID in the session
+    req.session.userId = user._id;
+    
+    // Return the user data
+    return res.json({user});
   } catch (error) {
+    // Return an error message
     return res.status(400).json({ ...error, message: error.message });
   }
 };
 
+// Handles user login
 const handleLogin = async (req, res) => {
+  
   const { email, password } = req.body;
   try {
+    // Find the user by email
     const user = await User.findOne({ email });
+
+    // If the user does not exist, return an error
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Invalid Email or Password" });
     }
+
+    // Check if the provided password matches the stored password
     const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    // If the password is invalid, return an error
     if (!isPasswordValid) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Invalid Email or Password" });
     }
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "10h",
-    });
-    //To set the cookie in the response
-    res.cookie("token", token, { httpOnly: true })
-    return res.json({ token, user });
+
+    // Store the user's ID in the session
+    req.session.userId = user._id;
+
+    // Return the user data
+    return res.json({ user });
   } catch (error) {
+    // Return an error message
     return res.status(400).json({ message: error.message });
   }
 };
 
-const handleLoggedUser= async (req, res) => {
+// Handles fetching the currently logged in user
+const handleLoggedUser = async (req, res) => {
+  console.log("handleLogged user", req.body)
   try {
-    const decodedJWT = jst.decode(req.cookies.token, {complete:true});
-    const user = await User.findById(decodedJWT.payload._id)
+    // Get the user by ID from the session
+    const user = await User.findById(req.session.userId);
+
+    // If the user does not exist, return an error
+    if (!user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    // Return the user data
     return res.json(user);
-  }catch(error){
-    return res.status(400).json({ ...error, message: error.message })
-  }
-};
-
-const handleLogout = async (req, res) => {
-  res.clearCookie("token");
-  res.status(200).json({ message: "Logout Successful" });
-}
-
-
-const handleGetAllUsers = async (req, res) => {
-
-  try {
-    const users = await User.find();
-    return res.json(users);
   } catch (error) {
+    // Return an error message
     return res.status(400).json({ ...error, message: error.message });
   }
 };
 
-const handleGetUserById = async (req, res) => {
-  console.log("controller: handleGetUserById", req.params);
-
-  try {
-    const user = await User.findById(req.params.id);
-    return res.json(user);
-  } catch (error) {
-    return res.status(400).json({ ...error, message: error.message });
-  }
+// Handles user logout
+const handleLogout = (req, res) => {
+  console.log('hello' ,req.session)
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(401).json({ message: "Could not log out, please try again later." });
+    } else {
+      return res.json({ message: "Successfully logged out." });
+    }
+  
+  });
 };
 
-const handleUpdateUserById = async (req, res) => {
-  console.log("controller: handleUpdateUserById", req.params, req.body);
-
-  try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-      // Re-run validations
-      runValidators: true,
-      // Return the updated user
-      new: true,
-    });
-    return res.json(user);
-  } catch (error) {
-    return res.status(400).json({ ...error, message: error.message });
-  }
-};
-
-const handleDeleteUserById = async (req, res) => {
-  console.log("controller: handleDeleteUserById", req.params);
-
-  try {
-    const user = await User.findByIdAndDelete(req.params.id);
-    return res.json(user);
-  } catch (error) {
-    return res.status(400).json({ ...error, message: error.message });
+const authenticate = (req, res, next) => {
+  if (req.session.userId) {
+    // User is authenticated
+    next();
+  } else {
+    // User is not authenticated
+    res.status(401).json({ message: "Unauthorized" });
   }
 };
 
 module.exports = {
-  // shorthand when the key name matches the value name:
+  authenticate,
   handleRegister,
   handleLogin,
   handleLoggedUser,
-  handleLogout,
-  handleGetAllUsers,
-  handleGetUserById,
-  handleUpdateUserById,
-  handleDeleteUserById,
+  handleLogout
 };

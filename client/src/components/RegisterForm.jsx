@@ -26,16 +26,11 @@ const RegisterForm = () => {
                 setPassword('');
                 setConfirmPassword('');
                 navigate('/dashboard')
+                console.log("this is the post from register " , res.data)
             })
             .catch((err) => {
-                // If the server returned a message, display it
-                if (err.response.data.message) {
-                    setErrors({ message: err.response.data.message });
-                } else {
-                    // Otherwise, display the validation errors
-                    setErrors(err.response.data.errors);
-                }
-            });
+                setErrors(err.response.data.errors)
+            })
     }
     return (
         <form onSubmit={handleRegister}>
@@ -127,6 +122,7 @@ const RegisterForm = () => {
                 title="Register"
                 customStyles="nav-buttons mt-3"
                 handleClick={handleRegister}
+                type="submit"
             />
         </form>
     )
